@@ -1,0 +1,2 @@
+# JxbControllerStack
+ViewController dealloc check
