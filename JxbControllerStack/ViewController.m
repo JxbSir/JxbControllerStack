@@ -7,21 +7,38 @@
 //
 
 #import "ViewController.h"
+#import "JxbControllStackApi.h"
 
 @interface ViewController ()
+
+@property (nonatomic, copy  ) void(^testBlock)(void);
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+-(void)dealloc {
+#if DEBUG
+    [[JxbControllerStack sharedInstance] removeController:self.uniqueId onTabIndex:self.tabIndex];
+#endif
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.testBlock = ^{
+        //这里故意写了循环引用，会导致不会释放vc
+        [self.navigationController popViewControllerAnimated:YES];
+    };
+    
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    [self.view addGestureRecognizer:tap];
 }
+
+- (void)tapAction {
+    ViewController* vc = [[ViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 @end

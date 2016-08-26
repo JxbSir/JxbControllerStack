@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "JxbControllStackApi.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+#if DEBUG
+    [[JxbControllerStack sharedInstance] enable];
+#endif
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    [self.window makeKeyWindow];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    
     return YES;
 }
 
