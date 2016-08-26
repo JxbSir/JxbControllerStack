@@ -14,7 +14,7 @@
 		D014F19A1D6EF5A800DC6AF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D014F1991D6EF5A800DC6AF6 /* Assets.xcassets */; };
 		D014F19D1D6EF5A800DC6AF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D014F19B1D6EF5A800DC6AF6 /* LaunchScreen.storyboard */; };
 		D014F1AF1D6EF5D000DC6AF6 /* JxbControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D014F1A61D6EF5D000DC6AF6 /* JxbControllerStack.m */; };
-		D014F1B01D6EF5D000DC6AF6 /* JxbSafeAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = D014F1A81D6EF5D000DC6AF6 /* JxbSafeAsync.m */; };
+		D014F1B01D6EF5D000DC6AF6 /* JxbSAsync.m in Sources */ = {isa = PBXBuildFile; fileRef = D014F1A81D6EF5D000DC6AF6 /* JxbSAsync.m */; };
 		D014F1B11D6EF5D000DC6AF6 /* JxbSwizzManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D014F1AA1D6EF5D000DC6AF6 /* JxbSwizzManager.m */; };
 		D014F1B21D6EF5D000DC6AF6 /* UINavigationController+JxbStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D014F1AC1D6EF5D000DC6AF6 /* UINavigationController+JxbStack.m */; };
 		D014F1B31D6EF5D000DC6AF6 /* UIViewController+JxbStack.m in Sources */ = {isa = PBXBuildFile; fileRef = D014F1AE1D6EF5D000DC6AF6 /* UIViewController+JxbStack.m */; };
@@ -33,8 +33,8 @@
 		D014F19E1D6EF5A800DC6AF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D014F1A51D6EF5D000DC6AF6 /* JxbControllerStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxbControllerStack.h; sourceTree = "<group>"; };
 		D014F1A61D6EF5D000DC6AF6 /* JxbControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxbControllerStack.m; sourceTree = "<group>"; };
-		D014F1A71D6EF5D000DC6AF6 /* JxbSafeAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxbSafeAsync.h; sourceTree = "<group>"; };
-		D014F1A81D6EF5D000DC6AF6 /* JxbSafeAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxbSafeAsync.m; sourceTree = "<group>"; };
+		D014F1A71D6EF5D000DC6AF6 /* JxbSAsync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxbSAsync.h; sourceTree = "<group>"; };
+		D014F1A81D6EF5D000DC6AF6 /* JxbSAsync.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxbSAsync.m; sourceTree = "<group>"; };
 		D014F1A91D6EF5D000DC6AF6 /* JxbSwizzManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JxbSwizzManager.h; sourceTree = "<group>"; };
 		D014F1AA1D6EF5D000DC6AF6 /* JxbSwizzManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JxbSwizzManager.m; sourceTree = "<group>"; };
 		D014F1AB1D6EF5D000DC6AF6 /* UINavigationController+JxbStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+JxbStack.h"; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 				D014F1B51D6FE83200DC6AF6 /* JxbControllStackApi.h */,
 				D014F1A51D6EF5D000DC6AF6 /* JxbControllerStack.h */,
 				D014F1A61D6EF5D000DC6AF6 /* JxbControllerStack.m */,
-				D014F1A71D6EF5D000DC6AF6 /* JxbSafeAsync.h */,
-				D014F1A81D6EF5D000DC6AF6 /* JxbSafeAsync.m */,
+				D014F1A71D6EF5D000DC6AF6 /* JxbSAsync.h */,
+				D014F1A81D6EF5D000DC6AF6 /* JxbSAsync.m */,
 				D014F1A91D6EF5D000DC6AF6 /* JxbSwizzManager.h */,
 				D014F1AA1D6EF5D000DC6AF6 /* JxbSwizzManager.m */,
 				D014F1AB1D6EF5D000DC6AF6 /* UINavigationController+JxbStack.h */,
@@ -191,7 +191,7 @@
 				D014F1921D6EF5A800DC6AF6 /* AppDelegate.m in Sources */,
 				D014F18F1D6EF5A800DC6AF6 /* main.m in Sources */,
 				D014F1B11D6EF5D000DC6AF6 /* JxbSwizzManager.m in Sources */,
-				D014F1B01D6EF5D000DC6AF6 /* JxbSafeAsync.m in Sources */,
+				D014F1B01D6EF5D000DC6AF6 /* JxbSAsync.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

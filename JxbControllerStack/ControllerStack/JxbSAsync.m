@@ -6,13 +6,13 @@
 //  Copyright © 2016年 Peter. All rights reserved.
 //
 
-#import "JxbSafeAsync.h"
+#import "JxbSAsync.h"
 
-@interface JxbSafeAsync()
+@interface JxbSAsync()
 @property (nonatomic, strong) dispatch_queue_t  queue;
 @end
 
-@implementation JxbSafeAsync
+@implementation JxbSAsync
 
 - (void)addWriteBlock:(void(^)(void))block {
     dispatch_barrier_async(self.queue, block);
@@ -25,7 +25,7 @@
 #pragma mark - getter / setter
 - (dispatch_queue_t)queue {
     if (!_queue) {
-        _queue = dispatch_queue_create("name.Jxb.SafeAync", nil);
+        _queue = dispatch_queue_create("name.Jxb.SAync", nil);
     }
     return _queue;
 }

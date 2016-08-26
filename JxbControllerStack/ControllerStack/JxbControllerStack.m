@@ -7,14 +7,14 @@
 //
 
 #import "JxbControllerStack.h"
-#import "JxbSafeAsync.h"
+#import "JxbSAsync.h"
 #import "UIViewController+JxbStack.h"
 #import "UINavigationController+JxbStack.h"
 
 @interface JxbControllerStack()
 @property (nonatomic, strong) NSMutableDictionary   *dicOfStack;
 
-@property (nonatomic, strong) JxbSafeAsync          *safeAync;
+@property (nonatomic, strong) JxbSAsync          *safeAync;
 @property (nonatomic, strong) UIView                *errorView;
 @end
 
@@ -134,9 +134,9 @@
     return _dicOfStack;
 }
 
-- (JxbSafeAsync*)safeAync {
+- (JxbSAsync*)safeAync {
     if (!_safeAync) {
-        _safeAync = [[JxbSafeAsync alloc] init];
+        _safeAync = [[JxbSAsync alloc] init];
     }
     return _safeAync;
 }

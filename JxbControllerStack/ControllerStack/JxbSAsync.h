@@ -1,5 +1,5 @@
 //
-//  JxbSafeAsync.h
+//  JxbSAsync
 //  TripBaseUI
 //
 //  Created by Peter on 16/8/25.
@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JxbSafeAsync : NSObject
+@interface JxbSAsync : NSObject
 
 /**
  *  执行一个写的操作
