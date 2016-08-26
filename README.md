@@ -30,4 +30,4 @@ pod 'JxbControllerStack', '~> 1.5'
 ```
 
 #当检测到VC没有释放时，立即Pop错误
-![](https://raw.githubusercontent.com/JxbSir/JxbControllerStack/master/1.jpg)
+![](https://raw.githubusercontent.com/JxbSir/JxbControllerStack/master/1.gif)
