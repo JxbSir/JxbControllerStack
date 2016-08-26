@@ -21,7 +21,6 @@
 
 - (void)JxbStack_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self JxbStack_pushViewController:viewController animated:animated];
-    NSInteger index = 0;
     if (self.tabBarController || self.viewControllers.count > 1) {
         [self addController:viewController];
     }
