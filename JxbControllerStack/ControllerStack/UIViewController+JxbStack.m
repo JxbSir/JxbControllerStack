@@ -19,24 +19,9 @@
     [JxbSwizzManager replaceImplementationOfSelector:sel2 withSelector:sel2_new cls:[self class]];
 }
 
-//- (void)dealloc {
-//    NSString* uID = self.uniqueId;
-//    NSNumber* index = self.tabIndex;
-//    if (!uID) {
-//        return;
-//    }
-//    [[JxbControllerStack sharedInstance] removeController:@"" onTabIndex:1];
-//}
-
 - (void)JxbStack_viewDidAppear:(BOOL)animated {
     [self JxbStack_viewDidAppear:animated];
-    NSInteger index = 0;
-    if (self.tabBarController) {
-        //每个Nav的root不添加
-        NSArray* arrVC = self.tabBarController.customizableViewControllers;
-        index = [arrVC indexOfObject:self.navigationController] + 1;
-    }
-    [[JxbControllerStack sharedInstance] checkController:self.navigationController index:index];
+    [[JxbControllerStack sharedInstance] checkController:self.navigationController index:self.tabIndex];
 }
 
 - (NSString*)uniqueId {
@@ -47,11 +32,11 @@
     objc_setAssociatedObject(self, @"uniqueId", uuid, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (NSNumber*)tabIndex {
+- (NSString*)tabIndex {
     return objc_getAssociatedObject(self, @"tabIndex");
 }
 
-- (void)setTabIndex:(NSNumber*)index {
+- (void)setTabIndex:(NSString*)index {
     objc_setAssociatedObject(self, @"tabIndex", index, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 @end

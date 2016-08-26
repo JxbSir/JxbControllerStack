@@ -33,15 +33,17 @@
 }
 
 - (void)addController:(UIViewController*)viewController {
+    NSString* tabName = @"<Null_Tab>_0";
     NSInteger index = 0;
     if (self.tabBarController) {
         //每个Nav的root不添加
         NSArray* arrVC = self.tabBarController.customizableViewControllers;
         index = [arrVC indexOfObject:self] + 1;
+        tabName = [NSString stringWithFormat:@"<%@:%p>_%zd",NSStringFromClass([self.tabBarController class]),self.tabBarController,index];
     }
     viewController.uniqueId = [NSString stringWithFormat:@"<%@>_%.0f",NSStringFromClass([viewController class]),[[NSDate date] timeIntervalSince1970]];
-    viewController.tabIndex = @(index);
-    [[JxbControllerStack sharedInstance] addController:viewController.uniqueId onTabIndex:index];
+    viewController.tabIndex = tabName;
+    [[JxbControllerStack sharedInstance] addController:viewController.uniqueId onTabIndex:viewController.tabIndex];
 }
 
 @end

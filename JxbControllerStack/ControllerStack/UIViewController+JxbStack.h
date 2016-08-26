@@ -13,8 +13,8 @@
 - (NSString*)uniqueId;
 - (void)setUniqueId:(NSString*)uuid;
 
-- (NSNumber*)tabIndex;
-- (void)setTabIndex:(NSNumber*)index;
+- (NSString*)tabIndex;
+- (void)setTabIndex:(NSString*)index;
 
 + (void)enable;
 @end

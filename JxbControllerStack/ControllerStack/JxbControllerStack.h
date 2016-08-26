@@ -29,7 +29,7 @@
  *  @param UniqueId 控制器唯一ID
  *  @param index    Tab的索引
  */
-- (void)addController:(NSString*)UniqueId onTabIndex:(NSInteger)index;
+- (void)addController:(NSString*)UniqueId onTabIndex:(NSString*)index;
 
 /**
  *  当Dealloc时，从堆栈中移除
@@ -37,14 +37,14 @@
  *  @param UniqueId 控制器唯一ID
  *  @param index    Tab的索引
  */
-- (void)removeController:(NSString*)UniqueId onTabIndex:(NSInteger)index;
+- (void)removeController:(NSString*)UniqueId onTabIndex:(NSString*)index;
 
 /**
  *  检测释放堆栈
  *
  *  @param nav 当前导航控制器
  */
-- (void)checkController:(UINavigationController*)nav index:(NSInteger)index;
+- (void)checkController:(UINavigationController*)nav index:(NSString*)index;
 
 
 @end

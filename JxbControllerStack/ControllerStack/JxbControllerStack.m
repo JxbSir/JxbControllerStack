@@ -43,27 +43,27 @@
 }
 
 #pragma mark - publick
-- (void)addController:(NSString*)UniqueId onTabIndex:(NSInteger)index {
+- (void)addController:(NSString*)UniqueId onTabIndex:(NSString*)index {
     __weak typeof (self) wSelf = self;
     __block NSMutableArray* arrOfStack = nil;
     [self.safeAync addGetBlock:^{
-        arrOfStack = (NSMutableArray*)wSelf.dicOfStack[@(index)];
+        arrOfStack = (NSMutableArray*)wSelf.dicOfStack[index];
     }];
     [self.safeAync addWriteBlock:^{
         if (arrOfStack.count > 0) {
             [arrOfStack addObject:UniqueId];
         }
         else {
-            [wSelf.dicOfStack setObject:[NSMutableArray arrayWithObject:UniqueId] forKey:@(index)];
+            [wSelf.dicOfStack setObject:[NSMutableArray arrayWithObject:UniqueId] forKey:index];
         }
     }];
 }
 
-- (void)removeController:(NSString*)UniqueId onTabIndex:(NSInteger)index {
+- (void)removeController:(NSString*)UniqueId onTabIndex:(NSString*)index {
     __weak typeof (self) wSelf = self;
     __block NSMutableArray* arrOfStack = nil;
     [self.safeAync addGetBlock:^{
-        arrOfStack = (NSMutableArray*)wSelf.dicOfStack[@(index)];
+        arrOfStack = (NSMutableArray*)wSelf.dicOfStack[index];
     }];
     if (arrOfStack.count > 0) {
         [self.safeAync addWriteBlock:^{
@@ -72,7 +72,7 @@
     }
 }
 
-- (void)checkController:(UINavigationController*)nav index:(NSInteger)index {
+- (void)checkController:(UINavigationController*)nav index:(NSString*)index {
     if (index <= 0)
         return;
     __weak typeof(nav) wNav = nav;
@@ -88,7 +88,7 @@
         }
         __block NSArray* arrOfStack = nil;
         [wSelf.safeAync addGetBlock:^{
-            arrOfStack = [(NSMutableArray*)wSelf.dicOfStack[@(index)] copy];
+            arrOfStack = [(NSMutableArray*)wSelf.dicOfStack[index] copy];
         }];
         NSLog(@"arrOfStack:%@",arrOfStack);
         for (NSString* uuid in arrOfStack) {
