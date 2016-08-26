@@ -41,7 +41,6 @@
 		D014F1AC1D6EF5D000DC6AF6 /* UINavigationController+JxbStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+JxbStack.m"; sourceTree = "<group>"; };
 		D014F1AD1D6EF5D000DC6AF6 /* UIViewController+JxbStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JxbStack.h"; sourceTree = "<group>"; };
 		D014F1AE1D6EF5D000DC6AF6 /* UIViewController+JxbStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JxbStack.m"; sourceTree = "<group>"; };
-		D014F1B41D6EF5FF00DC6AF6 /* JxbControllerStackApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JxbControllerStackApi.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +98,6 @@
 		D014F1A41D6EF5D000DC6AF6 /* ControllerStack */ = {
 			isa = PBXGroup;
 			children = (
-				D014F1B41D6EF5FF00DC6AF6 /* JxbControllerStackApi.h */,
 				D014F1A51D6EF5D000DC6AF6 /* JxbControllerStack.h */,
 				D014F1A61D6EF5D000DC6AF6 /* JxbControllerStack.m */,
 				D014F1A71D6EF5D000DC6AF6 /* JxbSafeAsync.h */,
@@ -340,6 +338,7 @@
 				D014F1A31D6EF5A800DC6AF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
