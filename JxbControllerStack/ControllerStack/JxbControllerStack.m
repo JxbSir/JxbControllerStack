@@ -143,8 +143,8 @@
         return YES;
     BOOL canGoOn = NO;
     for (NSString* cname in self.arrOfMonitors) {
-        NSString* _cname = [NSString stringWithFormat:@"<%@>",cname];
-        if ([index containsString:_cname]) {
+        NSString* _cname = [NSString stringWithFormat:@"<%@",cname];
+        if ([index hasPrefix:_cname]) {
             canGoOn = YES;
             break;
         }
