@@ -33,6 +33,13 @@
 - (void)enable:(BOOL)canHideByTap;
 
 /**
+ *  设置监控TabVC的类名
+ *
+ *  @param classNames   类名数组
+ */
+- (void)setOnlyMonitorTabController:(NSArray*)classNames;
+
+/**
  *  当Push时，添加一个到堆栈中
  *
  *  @param UniqueId 控制器唯一ID

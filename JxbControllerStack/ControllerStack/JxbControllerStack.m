@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) JxbSAsync             *safeAync;
 @property (nonatomic, strong) UIView                *errorView;
+
+@property (nonatomic, strong) NSArray               *arrOfMonitors;
 @property (nonatomic, assign) BOOL                  bCanHideByTap;
 @end
 
@@ -49,7 +51,14 @@
 }
 
 #pragma mark - publick
+- (void)setOnlyMonitorTabController:(NSArray *)classNames {
+    self.arrOfMonitors = classNames;
+}
+
 - (void)addController:(NSString*)UniqueId onTabIndex:(NSString*)index {
+    if (![self canGoOn:index]) {
+        return;
+    }
     __weak typeof (self) wSelf = self;
     __block NSMutableArray* arrOfStack = nil;
     [self.safeAync addGetBlock:^{
@@ -66,6 +75,9 @@
 }
 
 - (void)removeController:(NSString*)UniqueId onTabIndex:(NSString*)index {
+    if (![self canGoOn:index]) {
+        return;
+    }
     __weak typeof (self) wSelf = self;
     __block NSMutableArray* arrOfStack = nil;
     [self.safeAync addGetBlock:^{
@@ -79,8 +91,9 @@
 }
 
 - (void)checkController:(UINavigationController*)nav index:(NSString*)index {
-    if (index <= 0)
+    if (![self canGoOn:index]) {
         return;
+    }
     __weak typeof(nav) wNav = nav;
     __weak typeof (self) wSelf = self;
     NSInteger count = wNav.viewControllers.count;
@@ -123,6 +136,22 @@
 }
 
 #pragma mark private
+- (BOOL)canGoOn:(NSString*)index {
+    if (!index)
+        return NO;
+    if (self.arrOfMonitors.count == 0)
+        return YES;
+    BOOL canGoOn = NO;
+    for (NSString* cname in self.arrOfMonitors) {
+        NSString* _cname = [NSString stringWithFormat:@"<%@>",cname];
+        if ([index containsString:_cname]) {
+            canGoOn = YES;
+            break;
+        }
+    }
+    return canGoOn;
+}
+
 - (void)tapColse {
     if (self.bCanHideByTap) {
         [self.errorView removeFromSuperview];
@@ -133,6 +162,7 @@
 #pragma mark - kvo
 
 #pragma mark - getter / setter
+
 - (UIView*)errorView {
     if (!_errorView) {
         _errorView = [[UIView alloc] init];
