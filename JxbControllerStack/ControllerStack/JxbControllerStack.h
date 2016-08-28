@@ -20,8 +20,17 @@
 
 /**
  *  开启
+ *
+ *  @param canHideByTap 弹出的提示是否可以通过点击关闭，默认NO
  */
 - (void)enable;
+
+/**
+ *  开启
+ *
+ *  @param canHideByTap 弹出的提示是否可以通过点击关闭
+ */
+- (void)enable:(BOOL)canHideByTap;
 
 /**
  *  当Push时，添加一个到堆栈中

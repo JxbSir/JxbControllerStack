@@ -14,8 +14,9 @@
 @interface JxbControllerStack()
 @property (nonatomic, strong) NSMutableDictionary   *dicOfStack;
 
-@property (nonatomic, strong) JxbSAsync          *safeAync;
+@property (nonatomic, strong) JxbSAsync             *safeAync;
 @property (nonatomic, strong) UIView                *errorView;
+@property (nonatomic, assign) BOOL                  bCanHideByTap;
 @end
 
 @implementation JxbControllerStack
@@ -38,6 +39,11 @@
 }
 
 - (void)enable {
+    [self enable:NO];
+}
+
+- (void)enable:(BOOL)canHideByTap {
+    self.bCanHideByTap = canHideByTap;
     [UIViewController enable];
     [UINavigationController enable];
 }
@@ -116,6 +122,14 @@
     });
 }
 
+#pragma mark private
+- (void)tapColse {
+    if (self.bCanHideByTap) {
+        [self.errorView removeFromSuperview];
+        self.errorView = nil;
+    }
+}
+
 #pragma mark - kvo
 
 #pragma mark - getter / setter
@@ -123,6 +137,9 @@
     if (!_errorView) {
         _errorView = [[UIView alloc] init];
         _errorView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
+        _errorView.userInteractionEnabled = YES;
+        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapColse)];
+        [_errorView addGestureRecognizer:tap];
     }
     return _errorView;
 }
